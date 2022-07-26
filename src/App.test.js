@@ -1,10 +1,9 @@
 /* eslint-disable testing-library/render-result-naming-convention */
 
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import ItemListProvider from "./context/ProductListContext";
 import ItemDetailsProvider from "./context/ProductDetailsContext";
-import { preload } from "./common/utils/utils";
 import App from "./App";
 import Searchbar from "./containers/SearchBar/SearchBar";
 import { configure, shallow } from "enzyme";
