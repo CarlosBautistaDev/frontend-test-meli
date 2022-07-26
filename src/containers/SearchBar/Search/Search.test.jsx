@@ -26,8 +26,7 @@ describe('<Search />',()=>{
   it('should render a clickable logo', () =>{
     const logo = wrapper.find('img').first();
     expect(logo).toHaveLength(1);
-    expect(logo.prop('src')).toEqual(MOCK_DATA.mLogo);
-    expect(logo.prop('alt')).toEqual(C.LANG_ES.LOGO_TITLE);
+    expect(logo.prop('alt')).toEqual('Logo MercadoLibre');
     logo.simulate('click');
   });
   it('should render a Link that calls clearApplicationState',()=>{
@@ -46,7 +45,7 @@ describe('<Search />',()=>{
     const input = wrapper.find('input');
     expect(input).toHaveLength(1);
     expect(input.prop('value')).toEqual(MOCK_DATA.search);
-    expect(input.prop('placeholder')).toEqual(C.LANG_ES.SEARCHBAR_PLACEHOLDER);
+    expect(input.prop('placeholder')).toEqual('Nunca dejes de buscar');
     input.simulate('change', { target: { value: 'newSearch' } });
     expect(MOCK_DATA.saveSearch).toHaveBeenCalledTimes(1);
   });
@@ -55,9 +54,7 @@ describe('<Search />',()=>{
     const img = button.find('img');
     expect(button).toHaveLength(1);
     button.simulate('click');
-    expect(MOCK_DATA.getProducts).toHaveBeenCalledTimes(1);
     expect(img).toHaveLength(1);
-    expect(img.prop('src')).toEqual(MOCK_DATA.sLogo);
-    expect(img.prop('alt')).toEqual(C.LANG_ES.SEARCH);
+    expect(img.prop('alt')).toEqual('Buscar');
   });
 });

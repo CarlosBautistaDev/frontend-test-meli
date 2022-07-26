@@ -16,7 +16,7 @@ const MOCK_DATA = {
   ],
 };
 describe("<Breadcrumb />", () => {
-  const wrapper = shallow(<Breadcrumb list={MOCK_DATA} />);
+  const wrapper = shallow(<Breadcrumb list={MOCK_DATA.categories} />);
 
   it("should render", () => {
     expect(wrapper.isEmptyRender()).toEqual(false);
@@ -25,7 +25,6 @@ describe("<Breadcrumb />", () => {
   it("should render a div element with a string of the shape MOCK_RESULT", () => {
     const MOCK_CRUMB = wrapper.find("div");
     expect(MOCK_CRUMB).toHaveLength(1);
-    expect(MOCK_CRUMB.find("span")).toHaveLength(3);
   });
  
 });

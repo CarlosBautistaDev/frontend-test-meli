@@ -1,9 +1,10 @@
-/* eslint-disable testing-library/render-result-naming-convention */
 import React from 'react';
-import * as ItemDetailsContext from '../../context/ProductDetailsContext';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import * as useProductDetailsContext from '../../context/ProductDetailsContext';
 import ItemDetails from './ProductDetails';
-import { render } from 'react-dom';
 
+configure({adapter: new Adapter()});
 
 
 describe('<ItemDetails />',()=>{
@@ -42,9 +43,9 @@ describe('<ItemDetails />',()=>{
     };
 
     jest
-      .spyOn(ItemDetailsContext, 'useItemDetailsContext')
+      .spyOn(useProductDetailsContext, 'useProductDetailsContext')
       .mockImplementation(()=> contextValues);
-    const wrapper = render(<ItemDetails match={MOCK_MATCH} />);
+    const wrapper = shallow(<ItemDetails match={MOCK_MATCH} />);
     expect(wrapper.isEmptyRender()).toEqual(false);
     expect(wrapper.find('Item')).toHaveLength(1);
     expect(wrapper.find('Item').props()).toEqual(CORRECT_ITEM_PROPS);
