@@ -1,10 +1,19 @@
-# Getting Started with Create React App
+## Prueba técnica Carlos Bautista  MELI
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Requisitos de la Prueba 
+En base a los diseños dados, construir las siguientes tres vistas:
 
-In the project directory, you can run:
+* Caja de búsqueda
+
+* Resultados de la búsqueda
+
+* Detalle del producto
+
+Las llamadas a las apis se realizan a los endpoints que se realizo en el otro projecto, por eso mismo, para correr la aplicación es necesario iniciar tambien la otra prueba de los end points.
+
+## Scripts Create React App
 
 ### `npm start`
 
@@ -19,52 +28,12 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Estructua de la Aplicción
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Las vistas se manejan desde contenedores que importan, y actualizan dos contextos, el de ItemListContext y el de ItemDetailsContext.El ItemListContext se encarga de generar las llamadas a la api en dos useEffects. 
+El segundo se realiza cada vez que la query(o busqueda) cambia desde la Searchbar.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Los resultados se parsean a travez de las utils de parsing en un objeto con la forma requerida en el test, incluyendo el autor, las categorias de los mismos(que se realizo el parseo desde los endpoints realizados en el otro proyecto) y la lista de items.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Cada componente cuenta con sus test unitarios 
